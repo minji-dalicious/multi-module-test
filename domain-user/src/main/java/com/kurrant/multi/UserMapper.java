@@ -1,9 +1,7 @@
 package com.kurrant.multi;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import org.mapstruct.Mapper;
 
-@Getter
-@NoArgsConstructor
-public class UserMapper {
+@Mapper(componentModel = "spring")
+public interface UserMapper extends GenericMapper<UserDto, User>{
 }

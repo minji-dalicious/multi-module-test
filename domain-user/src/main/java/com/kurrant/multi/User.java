@@ -14,6 +14,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PKey", nullable = false)
     private Integer id;
+
     @Column(name = "SupplierCorpId", nullable = false)
     private Integer supplierCorpId;
 

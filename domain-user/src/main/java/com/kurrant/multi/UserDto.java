@@ -1,7 +1,6 @@
 package com.kurrant.multi;
 
-import javax.persistence.Column;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 public class UserDto {
     public Integer supplierCorpId;
@@ -22,7 +21,7 @@ public class UserDto {
 
     public Integer status;
 
-    public Instant created;
+//    public LocalDateTime created;
 
     public Integer box;
 }
