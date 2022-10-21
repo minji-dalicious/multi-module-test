@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="62a85ef5-878b-42ce-8727-e2c0cfb23db0" />
+    <option name="reLastEntityCreationPackage" value="module-core/src/main/java/com/kurrant/multi" />
+    <reUseDbSnapshotConnections>
+      <dbConnection id="62a85ef5-878b-42ce-8727-e2c0cfb23db0" />
+    </reUseDbSnapshotConnections>
+    <option name="reIgnoreSlowDbConnections">
+      <ignoreDs id="62a85ef5-878b-42ce-8727-e2c0cfb23db0" />
+    </option>
+  </component>
+</project>

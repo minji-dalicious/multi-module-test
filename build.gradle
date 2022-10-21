@@ -1,0 +1,67 @@
+// Gradle 이 Build 되기 전 실행되는 과정
+buildscript {
+    ext {
+        springBootVersion = '2.4.3'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+    }
+}
+
+// 현재의 root 프로젝트와 앞으로 추가될 서브 모듈에 대한 설정
+allprojects {}
+
+// 전체 서브 모듈에 해당되는 설정
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.kurrant.multi'
+    version = '1.0'
+    sourceCompatibility = '11'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.20'
+        annotationProcessor 'org.projectlombok:lombok:1.18.20'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+    }
+}
+
+project(':app-group') {
+    // group 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
+    dependencies {
+        implementation project(':module-core')
+        implementation project(':data-mysql')
+    }
+}
+
+project(':app-makers') {
+    // makers 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
+    dependencies {
+        implementation project(':module-core')
+        implementation project(':data-mysql')
+    }
+}
+
+project(':domain-user') {
+    // group 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
+    bootJar.enabled = false
+    jar.enabled = true
+
+    dependencies {
+        implementation project(':module-core')
+        implementation project(':data-mysql')
+    }
+}

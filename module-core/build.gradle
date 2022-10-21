@@ -1,0 +1,10 @@
+dependencies {
+    api 'org.springframework.boot:spring-boot-starter-web:2.6.1'
+}// core 모듈은 실행 가능한 boot jar 로는 패키징 할 필요가 없으므로 다음과 같이 설정.
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}

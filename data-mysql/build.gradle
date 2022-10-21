@@ -1,0 +1,9 @@
+dependencies {
+    // MapStruct
+    api 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+    api 'mysql:mysql-connector-java'
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'
+}

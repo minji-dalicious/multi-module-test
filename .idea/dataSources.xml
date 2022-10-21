@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="@kurrant-dev.cervbb8tghaq.ap-northeast-2.rds.amazonaws.com" uuid="5e3efa13-6f89-4878-8f62-6f3787a693cc">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://kurrant-dev.cervbb8tghaq.ap-northeast-2.rds.amazonaws.com:3306</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="kurrant@kurrant-dev.cervbb8tghaq.ap-northeast-2.rds.amazonaws.com" uuid="62a85ef5-878b-42ce-8727-e2c0cfb23db0">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://kurrant-dev.cervbb8tghaq.ap-northeast-2.rds.amazonaws.com:3306/kurrant</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="multi-module-test.module-core.test/Hibernate" uuid="b07eb3bb-d34f-4a20-b77c-fc8317085165">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://kurrant-dev.cervbb8tghaq.ap-northeast-2.rds.amazonaws.com:3306/kurrant</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="multi-module-test.module-makers.test/Hibernate" uuid="a0b57f16-11e2-4402-b96e-74c3f7751aa5">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://kurrant-dev.cervbb8tghaq.ap-northeast-2.rds.amazonaws.com:3306/kurrant</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="multi-module-test.module-makers.main/Hibernate" uuid="4e73b182-4318-4479-87d4-ff8d64783eb4">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://kurrant-dev.cervbb8tghaq.ap-northeast-2.rds.amazonaws.com:3306/kurrant</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
