@@ -1,4 +1,4 @@
-package com.kurrant.multi;
+package com.kurrant.multi.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

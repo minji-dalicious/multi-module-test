@@ -1,4 +1,4 @@
-package com.kurrant.multi;
+package com.kurrant.multi.dto;
 
 import java.time.LocalDateTime;
 

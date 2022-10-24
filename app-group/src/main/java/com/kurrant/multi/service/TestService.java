@@ -1,6 +1,6 @@
 package com.kurrant.multi.service;
 
-import com.kurrant.multi.User;
+import com.kurrant.multi.domain.User;
 import com.kurrant.multi.domain.CustomerCorp;
 import com.kurrant.multi.repository.CustomerCorpRepository;
 import com.kurrant.multi.repository.UserRepository;

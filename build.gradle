@@ -57,10 +57,7 @@ project(':app-makers') {
 }
 
 project(':domain-user') {
-    // group 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
-    bootJar.enabled = false
-    jar.enabled = true
-
+    // user 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
         implementation project(':data-mysql')
