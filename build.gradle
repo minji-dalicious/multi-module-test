@@ -1,7 +1,7 @@
-// Gradle 이 Build 되기 전 실행되는 과정
-buildscript {
+buildscript { // Gradle 이 Build 되기 전 실행되는 과정
     ext {
         springBootVersion = '2.4.3'
+        queryDslVersion = "5.0.0"
     }
     repositories {
         mavenCentral()
@@ -12,6 +12,14 @@ buildscript {
     }
 }
 
+plugins {
+    // (1) QueryDSL 플러그인 추가
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+    // lombok 어노테이션의 프로세스를 단순화
+    id "io.franzbecker.gradle-lombok" version "3.0.0"
+    id 'java'
+}
+
 // 현재의 root 프로젝트와 앞으로 추가될 서브 모듈에 대한 설정
 allprojects {}
 
@@ -20,10 +28,11 @@ subprojects {
     apply plugin: 'java-library'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.ewerk.gradle.plugins.querydsl'
 
     group = 'com.kurrant.multi'
     version = '1.0'
-    sourceCompatibility = '11'
+    sourceCompatibility = '17'
 
     repositories {
         mavenCentral()
@@ -32,10 +41,38 @@ subprojects {
     dependencies {
         compileOnly 'org.projectlombok:lombok:1.18.20'
         annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+        // (2) QueryDSL 의존성 추가
+        compileOnly("com.querydsl:querydsl-core:${queryDslVersion}")
+        compileOnly("com.querydsl:querydsl-apt:${queryDslVersion}")
+
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
+    }
+    // (3) QClass 생성 위치
+    def querydslDir = "$buildDir/generated/querydsl"
+
+    querydsl {
+        jpa = true
+        querydslSourcesDir = querydslDir
+    }
+
+// (4) QClass 소스 위치를 지정합니다.
+    sourceSets {
+        main.java.srcDir querydslDir
+    }
+// (5) gradle 5.0 설정
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+        querydsl.extendsFrom compileClasspath
+    }
+
+    compileQuerydsl {
+        options.annotationProcessorPath = configurations.querydsl
     }
 }
 

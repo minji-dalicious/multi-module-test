@@ -1,5 +1,6 @@
 package com.kurrant.multi.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -107,4 +108,40 @@ public class User {
 
     @Column(name = "Box", nullable = false)
     private Integer box;
+
+    @Builder
+    public User(Integer id, Integer supplierCorpId, Integer customerCorpId, Integer type, Integer level, Integer locationId, String id1, String pwd, String email, String name, String snsKey, Integer registerType, Instant birth, String phone, Integer gender, String verifyNum, Integer verifyStatus, Integer status, Integer isAcceptMarketing, Integer isAcceptTerms, Integer isWework, Instant registered, Instant requestVerifying, Instant succeedVerifying, Integer os, String oSver, String udid, Instant created, Instant updated, Instant marketingDate, String fCMToken, Integer box) {
+        this.id = id;
+        this.supplierCorpId = supplierCorpId;
+        this.customerCorpId = customerCorpId;
+        this.type = type;
+        this.level = level;
+        this.locationId = locationId;
+        this.id1 = id1;
+        this.pwd = pwd;
+        this.email = email;
+        this.name = name;
+        this.snsKey = snsKey;
+        this.registerType = registerType;
+        this.birth = birth;
+        this.phone = phone;
+        this.gender = gender;
+        this.verifyNum = verifyNum;
+        this.verifyStatus = verifyStatus;
+        this.status = status;
+        this.isAcceptMarketing = isAcceptMarketing;
+        this.isAcceptTerms = isAcceptTerms;
+        this.isWework = isWework;
+        this.registered = registered;
+        this.requestVerifying = requestVerifying;
+        this.succeedVerifying = succeedVerifying;
+        this.os = os;
+        this.oSver = oSver;
+        this.udid = udid;
+        this.created = created;
+        this.updated = updated;
+        this.marketingDate = marketingDate;
+        this.fCMToken = fCMToken;
+        this.box = box;
+    }
 }

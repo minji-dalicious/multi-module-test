@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-24T13:37:27+0900",
+    date = "2022-10-27T11:12:20+0900",
     comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.4.jar, environment: Java 17.0.4.1 (Amazon.com Inc.)"
 )
 @Component
@@ -19,18 +19,29 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        UserDto userDto = new UserDto();
+        Integer supplierCorpId = null;
+        Integer customerCorpId = null;
+        Integer type = null;
+        Integer level = null;
+        Integer locationId = null;
+        Integer registerType = null;
+        Integer gender = null;
+        Integer verifyStatus = null;
+        Integer status = null;
+        Integer box = null;
 
-        userDto.supplierCorpId = e.getSupplierCorpId();
-        userDto.customerCorpId = e.getCustomerCorpId();
-        userDto.type = e.getType();
-        userDto.level = e.getLevel();
-        userDto.locationId = e.getLocationId();
-        userDto.registerType = e.getRegisterType();
-        userDto.gender = e.getGender();
-        userDto.verifyStatus = e.getVerifyStatus();
-        userDto.status = e.getStatus();
-        userDto.box = e.getBox();
+        supplierCorpId = e.getSupplierCorpId();
+        customerCorpId = e.getCustomerCorpId();
+        type = e.getType();
+        level = e.getLevel();
+        locationId = e.getLocationId();
+        registerType = e.getRegisterType();
+        gender = e.getGender();
+        verifyStatus = e.getVerifyStatus();
+        status = e.getStatus();
+        box = e.getBox();
+
+        UserDto userDto = new UserDto( supplierCorpId, customerCorpId, type, level, locationId, registerType, gender, verifyStatus, status, box );
 
         return userDto;
     }
