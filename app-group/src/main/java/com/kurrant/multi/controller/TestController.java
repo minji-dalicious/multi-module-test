@@ -1,7 +1,8 @@
 package com.kurrant.multi.controller;
 
-import com.kurrant.multi.domain.User;
+
 import com.kurrant.multi.domain.CustomerCorp;
+import com.kurrant.multi.domain.User;
 import com.kurrant.multi.service.TestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

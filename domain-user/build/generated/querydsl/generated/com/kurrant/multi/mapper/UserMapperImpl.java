@@ -7,15 +7,15 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-27T12:58:24+0900",
-    comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.4.jar, environment: Java 17.0.4.1 (Amazon.com Inc.)"
+    date = "2022-10-27T13:03:47+0900",
+    comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.4.1 (Amazon.com Inc.)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
 
     @Override
-    public UserDto toDto(User e) {
-        if ( e == null ) {
+    public UserDto toDto(User arg0) {
+        if ( arg0 == null ) {
             return null;
         }
 
@@ -30,16 +30,16 @@ public class UserMapperImpl implements UserMapper {
         Integer status = null;
         Integer box = null;
 
-        supplierCorpId = e.getSupplierCorpId();
-        customerCorpId = e.getCustomerCorpId();
-        type = e.getType();
-        level = e.getLevel();
-        locationId = e.getLocationId();
-        registerType = e.getRegisterType();
-        gender = e.getGender();
-        verifyStatus = e.getVerifyStatus();
-        status = e.getStatus();
-        box = e.getBox();
+        supplierCorpId = arg0.getSupplierCorpId();
+        customerCorpId = arg0.getCustomerCorpId();
+        type = arg0.getType();
+        level = arg0.getLevel();
+        locationId = arg0.getLocationId();
+        registerType = arg0.getRegisterType();
+        gender = arg0.getGender();
+        verifyStatus = arg0.getVerifyStatus();
+        status = arg0.getStatus();
+        box = arg0.getBox();
 
         UserDto userDto = new UserDto( supplierCorpId, customerCorpId, type, level, locationId, registerType, gender, verifyStatus, status, box );
 
@@ -47,8 +47,8 @@ public class UserMapperImpl implements UserMapper {
     }
 
     @Override
-    public User toEntity(UserDto d) {
-        if ( d == null ) {
+    public User toEntity(UserDto arg0) {
+        if ( arg0 == null ) {
             return null;
         }
 
@@ -58,8 +58,8 @@ public class UserMapperImpl implements UserMapper {
     }
 
     @Override
-    public void updateFromDto(UserDto dto, User entity) {
-        if ( dto == null ) {
+    public void updateFromDto(UserDto arg0, User arg1) {
+        if ( arg0 == null ) {
             return;
         }
     }
