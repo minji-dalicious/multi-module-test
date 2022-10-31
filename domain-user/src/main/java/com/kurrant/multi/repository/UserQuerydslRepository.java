@@ -27,7 +27,6 @@ public class UserQuerydslRepository {
         QUser user = QUser.user;
         List<UserDto> result = queryFactory
                 .select(Projections.fields(UserDto.class,
-                        user.role,
                         user.name,
                         user.point
                 ))
@@ -36,7 +35,6 @@ public class UserQuerydslRepository {
                 .limit(10)
                 .fetch();
         result.forEach(e -> {
-            log.info("role: " + e.getRole());
             log.info("name: " + e.getName());
             log.info("point: " + e.getPoint());
         });

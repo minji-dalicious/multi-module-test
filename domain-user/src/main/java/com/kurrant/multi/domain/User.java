@@ -2,14 +2,14 @@ package com.kurrant.multi.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class User {
     @Id
@@ -17,6 +17,7 @@ public class User {
     @Column(name = "PKey", nullable = false)
     private Integer id;
 
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "Role", length = 45)
     private Role role;
 
@@ -32,7 +33,10 @@ public class User {
     private CustomerCorp customerCorp;
 
     @ManyToOne
-    @JoinColumn(name = "CustomerCorpId")
+    @JoinColumn(name = "ApartmentId")
     @JsonBackReference
     private Apartment apartment;
+
+    public User() {
+    }
 }

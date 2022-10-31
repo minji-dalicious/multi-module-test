@@ -1,6 +1,5 @@
 package com.kurrant.multi.mapper;
 
-import com.kurrant.multi.domain.Role;
 import com.kurrant.multi.domain.User;
 import com.kurrant.multi.dto.UserDto;
 import javax.annotation.processing.Generated;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-31T13:37:53+0900",
+    date = "2022-10-31T17:03:33+0900",
     comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.4.jar, environment: Java 17.0.4.1 (Amazon.com Inc.)"
 )
 @Component
@@ -20,15 +19,13 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        Role role = null;
         String name = null;
         Integer point = null;
 
-        role = e.getRole();
         name = e.getName();
         point = e.getPoint();
 
-        UserDto userDto = new UserDto( role, name, point );
+        UserDto userDto = new UserDto( name, point );
 
         return userDto;
     }
@@ -39,9 +36,12 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        User user = new User();
+        User.UserBuilder user = User.builder();
 
-        return user;
+        user.name( d.getName() );
+        user.point( d.getPoint() );
+
+        return user.build();
     }
 
     @Override

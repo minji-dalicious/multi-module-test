@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-31T13:38:11+0900",
+    date = "2022-10-31T17:04:40+0900",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.4.1 (Amazon.com Inc.)"
 )
 @Component
@@ -32,9 +32,11 @@ public class CustomerCorpMapperImpl implements CustomerCorpMapper {
             return null;
         }
 
-        CustomerCorp customerCorp = new CustomerCorp();
+        CustomerCorp.CustomerCorpBuilder customerCorp = CustomerCorp.builder();
 
-        return customerCorp;
+        customerCorp.name( arg0.getName() );
+
+        return customerCorp.build();
     }
 
     @Override

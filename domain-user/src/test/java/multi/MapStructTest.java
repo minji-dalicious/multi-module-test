@@ -14,13 +14,12 @@ import org.junit.jupiter.api.Test;
 public class MapStructTest {
     @Test
     public void 유저_DTO를_Entity로_맵핑() {
-        UserDto userDto = new UserDto(Role.USER, "김민지", 0);
+        UserDto userDto = new UserDto("김민지", 0);
         User user =  UserMapper.INSTANCE.toEntity(userDto);
 
         System.out.println(">>>>> userDto = " + userDto);
         System.out.println(">>>>> user = " + user);
 
-        Assertions.assertEquals(userDto.getRole(), user.getRole());
         Assertions.assertEquals(userDto.getName(), user.getName());
         Assertions.assertEquals(userDto.getPoint(), user.getPoint());
     }
@@ -37,7 +36,6 @@ public class MapStructTest {
         System.out.println(">>>>> user = " + user);
         System.out.println(">>>>> userDto = " + userDto);
 
-        Assertions.assertEquals(user.getRole(), userDto.getRole());
         Assertions.assertEquals(user.getName(), userDto.getName());
         Assertions.assertEquals(user.getPoint(), userDto.getPoint());
     }
