@@ -3,8 +3,8 @@
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
     <option name="renamerInitialized" value="true" />
-    <option name="reverseEngineeringLastDbConnectionId" value="62a85ef5-878b-42ce-8727-e2c0cfb23db0" />
-    <option name="reLastEntityCreationPackage" value="module-core/src/main/java/com/kurrant/multi" />
+    <option name="reverseEngineeringLastDbConnectionId" value="75a149d1-78fd-41b7-937e-2dae1d3974a8" />
+    <option name="reLastEntityCreationPackage" value="app-group/src/main/java/com/kurrant/multi" />
     <reUseDbSnapshotConnections>
       <dbConnection id="62a85ef5-878b-42ce-8727-e2c0cfb23db0" />
     </reUseDbSnapshotConnections>

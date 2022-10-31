@@ -1,8 +1,11 @@
 dependencies {
     // MapStruct
     // Module-core에서 dependencies 설정을 해도 적용이 되지 않음.
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
-    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
     api 'org.mapstruct:mapstruct:1.5.3.Final'
     api 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+    testAnnotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 }

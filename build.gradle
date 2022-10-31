@@ -25,6 +25,7 @@ allprojects {}
 
 // 전체 서브 모듈에 해당되는 설정
 subprojects {
+
     apply plugin: 'java-library'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
@@ -44,6 +45,7 @@ subprojects {
 
         // (2) QueryDSL 의존성 추가
         compileOnly("com.querydsl:querydsl-core:${queryDslVersion}")
+        compileOnly("com.querydsl:querydsl-jpa:${queryDslVersion}")
         compileOnly("com.querydsl:querydsl-apt:${queryDslVersion}")
 
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -80,7 +82,6 @@ project(':app-group') {
     // group 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
-        implementation project(':data-mysql')
         implementation project(':domain-user')
     }
 }
@@ -89,7 +90,6 @@ project(':app-makers') {
     // makers 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
-        implementation project(':data-mysql')
     }
 }
 
@@ -97,6 +97,5 @@ project(':domain-user') {
     // user 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
-        implementation project(':data-mysql')
     }
 }
