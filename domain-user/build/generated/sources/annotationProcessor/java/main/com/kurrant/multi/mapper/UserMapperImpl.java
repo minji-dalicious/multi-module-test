@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-31T09:21:20+0900",
+    date = "2022-10-31T13:37:53+0900",
     comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.4.jar, environment: Java 17.0.4.1 (Amazon.com Inc.)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
 
     @Override
-    public UserDto UserToUserDto(User user) {
-        if ( user == null ) {
+    public UserDto toDto(User e) {
+        if ( e == null ) {
             return null;
         }
 
@@ -24,9 +24,9 @@ public class UserMapperImpl implements UserMapper {
         String name = null;
         Integer point = null;
 
-        role = user.getRole();
-        name = user.getName();
-        point = user.getPoint();
+        role = e.getRole();
+        name = e.getName();
+        point = e.getPoint();
 
         UserDto userDto = new UserDto( role, name, point );
 
@@ -34,13 +34,20 @@ public class UserMapperImpl implements UserMapper {
     }
 
     @Override
-    public User UserDtoToUser(UserDto userDto) {
-        if ( userDto == null ) {
+    public User toEntity(UserDto d) {
+        if ( d == null ) {
             return null;
         }
 
         User user = new User();
 
         return user;
+    }
+
+    @Override
+    public void updateFromDto(UserDto dto, User entity) {
+        if ( dto == null ) {
+            return;
+        }
     }
 }

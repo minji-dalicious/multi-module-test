@@ -2,9 +2,9 @@ package com.kurrant.multi.dto;
 
 import com.kurrant.multi.domain.Role;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 @AllArgsConstructor
 public class UserDto {
 
