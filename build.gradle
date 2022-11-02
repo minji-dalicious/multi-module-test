@@ -40,6 +40,7 @@ subprojects {
     }
 
     dependencies {
+        compileOnly 'org.springframework.boot:spring-boot-starter-web:2.6.1'
         compileOnly 'org.projectlombok:lombok:1.18.20'
         annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
@@ -81,7 +82,6 @@ subprojects {
 project(':app-group') {
     // group 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
-        implementation project(':module-core')
         implementation project(':domain-user')
     }
 }
@@ -97,5 +97,19 @@ project(':domain-user') {
     // user 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
+        implementation project(':domain-client')
+    }
+}
+
+project(':domain-client') {
+    // client(CustomerCorporation / Apartment) 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
+    dependencies {
+        implementation project(':module-core')
+    }
+}
+
+project(':internal-security-jwt') {
+    dependencies {
+        implementation project(':internal-security-core')
     }
 }

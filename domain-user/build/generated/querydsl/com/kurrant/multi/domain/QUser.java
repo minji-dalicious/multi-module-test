@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -18,13 +17,11 @@ public class QUser extends EntityPathBase<User> {
 
     private static final long serialVersionUID = 985343042L;
 
-    private static final PathInits INITS = PathInits.DIRECT2;
-
     public static final QUser user = new QUser("user");
 
-    public final QApartment apartment;
+    public final NumberPath<Apartment> apartment = createNumber("apartment", Apartment.class);
 
-    public final QCustomerCorp customerCorp;
+    public final NumberPath<CustomerCorp> customerCorp = createNumber("customerCorp", CustomerCorp.class);
 
     public final NumberPath<Integer> id = createNumber("id", Integer.class);
 
@@ -35,25 +32,15 @@ public class QUser extends EntityPathBase<User> {
     public final EnumPath<Role> role = createEnum("role", Role.class);
 
     public QUser(String variable) {
-        this(User.class, forVariable(variable), INITS);
+        super(User.class, forVariable(variable));
     }
 
     public QUser(Path<? extends User> path) {
-        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+        super(path.getType(), path.getMetadata());
     }
 
     public QUser(PathMetadata metadata) {
-        this(metadata, PathInits.getFor(metadata, INITS));
-    }
-
-    public QUser(PathMetadata metadata, PathInits inits) {
-        this(User.class, metadata, inits);
-    }
-
-    public QUser(Class<? extends User> type, PathMetadata metadata, PathInits inits) {
-        super(type, metadata, inits);
-        this.apartment = inits.isInitialized("apartment") ? new QApartment(forProperty("apartment")) : null;
-        this.customerCorp = inits.isInitialized("customerCorp") ? new QCustomerCorp(forProperty("customerCorp")) : null;
+        super(User.class, metadata);
     }
 
 }

@@ -1,10 +1,13 @@
 rootProject.name = 'multi-module-test'
+include 'module-core'
+
 include 'app-group'
 include 'app-makers'
 include 'app-kurrant'
 include 'app-admin'
 
-include 'module-core'
 include 'domain-user'
-
+include 'domain-client'
+include 'internal-security-core'
+include 'internal-security-jwt'
 
