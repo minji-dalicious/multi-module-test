@@ -10,6 +10,7 @@
         </processorPath>
         <module name="multi-module-test.domain-user.main" />
         <module name="multi-module-test.app-kurrant.main" />
+        <module name="multi-module-test.internal-security-oauth.main" />
         <module name="multi-module-test.app-admin.main" />
         <module name="com.kurrant.multi.multi-module-test.internal-security-core.main" />
         <module name="multi-module-test.domain-client.main" />

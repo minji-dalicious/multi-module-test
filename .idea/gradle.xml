@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/domain-user" />
             <option value="$PROJECT_DIR$/internal-security-core" />
             <option value="$PROJECT_DIR$/internal-security-jwt" />
+            <option value="$PROJECT_DIR$/internal-security-oauth" />
             <option value="$PROJECT_DIR$/module-core" />
           </set>
         </option>

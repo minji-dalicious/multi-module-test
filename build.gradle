@@ -111,5 +111,6 @@ project(':domain-client') {
 project(':internal-security-jwt') {
     dependencies {
         implementation project(':internal-security-core')
+        implementation project(':domain-user')
     }
 }

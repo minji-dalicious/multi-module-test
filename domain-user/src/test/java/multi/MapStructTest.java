@@ -29,7 +29,7 @@ public class MapStructTest {
         CustomerCorp customerCorp = new CustomerCorp(1, "(주)김민.D");
         Apartment apartment = new Apartment(1, "민지네아파트");
 
-        User user = new User(1, Role.USER, "김민지" ,100, customerCorp, apartment);
+        User user = new User(1, "2345", Role.USER, "김민지" ,100, customerCorp, apartment);
 
         UserDto userDto = UserMapper.INSTANCE.toDto(user);
 

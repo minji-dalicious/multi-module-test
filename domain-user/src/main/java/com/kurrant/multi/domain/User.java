@@ -1,21 +1,24 @@
 package com.kurrant.multi.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
-@Builder
-@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PKey", nullable = false)
     private Integer id;
+
+    @Column
+    private String password;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "Role", length = 45)
@@ -37,6 +40,19 @@ public class User {
     @JsonBackReference
     private Apartment apartment;
 
-    public User() {
+    public User(String name, String password, Role role) {
+        this.password = password;
+        this.role = role;
+        this.name = name;
+    }
+
+    public User(Integer id, String password, Role role, String name, Integer point, CustomerCorp customerCorp, Apartment apartment) {
+        this.id = id;
+        this.password = password;
+        this.role = role;
+        this.name = name;
+        this.point = point;
+        this.customerCorp = customerCorp;
+        this.apartment = apartment;
     }
 }
