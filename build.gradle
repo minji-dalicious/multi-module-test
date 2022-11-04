@@ -79,14 +79,32 @@ subprojects {
     }
 }
 
+project(':app-admin') {
+    // admin 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
+    dependencies {
+        implementation project(':module-core')
+        implementation project(':internal-security-core')
+    }
+}
+
 project(':app-group') {
     // group 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
+        implementation project(':internal-security-core')
+        implementation project(':internal-security-jwt')
         implementation project(':domain-user')
+        implementation project(':module-core')
     }
 }
 
 project(':app-makers') {
+    // makers 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
+    dependencies {
+        implementation project(':module-core')
+    }
+}
+
+project(':app-kurrant') {
     // makers 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')

@@ -1,16 +1,15 @@
 package com.kurrant.multi.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor
-@RequiredArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,5 +53,18 @@ public class User {
         this.point = point;
         this.customerCorp = customerCorp;
         this.apartment = apartment;
+    }
+
+    @Getter
+    @NoArgsConstructor
+    public static class Login {
+        private String name;
+        private String password;
+
+        @Builder
+        public Login(String name, String password) {
+            this.name = name;
+            this.password = password;
+        }
     }
 }
