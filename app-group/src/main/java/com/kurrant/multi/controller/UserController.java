@@ -4,7 +4,6 @@ import com.kurrant.multi.ResponseMessage;
 import com.kurrant.multi.domain.User;
 import com.kurrant.multi.dto.UserDto;
 import com.kurrant.multi.repository.UserQuerydslRepository;
-import com.kurrant.multi.repository.UserRepository;
 import com.kurrant.multi.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final UserQuerydslRepository userQuerydslRepository;
-    private final UserRepository userRepository;
     private final UserServiceImpl userService;
 
     @GetMapping("/users/same-name")
@@ -37,6 +35,7 @@ public class UserController {
 
     @PostMapping("/v1/auth/join")
     public ResponseMessage join(@RequestBody UserDto userDto) {
+        userService.join(userDto);
         return ResponseMessage.builder()
                 .result(true)
                 .message("일반 회원가입에 성공하였습니다.")

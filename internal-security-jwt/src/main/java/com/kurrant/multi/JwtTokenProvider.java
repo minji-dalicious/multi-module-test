@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletRequest;
 import java.security.Key;
@@ -20,6 +21,7 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 @Slf4j
+@Component
 public class JwtTokenProvider {
     private static final int SEC = 1;
     private static final int MINUTE = 60 * SEC;

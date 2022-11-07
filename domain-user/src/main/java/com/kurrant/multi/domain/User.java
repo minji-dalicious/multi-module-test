@@ -39,12 +39,14 @@ public class User {
     @JsonBackReference
     private Apartment apartment;
 
+    @Builder
     public User(String name, String password, Role role) {
         this.password = password;
         this.role = role;
         this.name = name;
     }
 
+    @Builder
     public User(Integer id, String password, Role role, String name, Integer point, CustomerCorp customerCorp, Apartment apartment) {
         this.id = id;
         this.password = password;
