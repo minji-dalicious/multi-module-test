@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 public class MapStructTest {
     @Test
     public void 유저_DTO를_Entity로_맵핑() {
-        UserDto userDto = new UserDto("김민지", 0);
+        UserDto userDto = new UserDto("김민지", "1234", 0);
         User user =  UserMapper.INSTANCE.toEntity(userDto);
 
         System.out.println(">>>>> userDto = " + userDto);

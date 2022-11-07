@@ -54,8 +54,8 @@ public class QUser extends EntityPathBase<User> {
 
     public QUser(Class<? extends User> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.apartment = inits.isInitialized("apartment") ? new QApartment(forProperty("apartment")) : null;
-        this.customerCorp = inits.isInitialized("customerCorp") ? new QCustomerCorp(forProperty("customerCorp")) : null;
+        this.apartment = inits.isInitialized("apartment") ? new QApartment(forProperty("apartment"), inits.get("apartment")) : null;
+        this.customerCorp = inits.isInitialized("customerCorp") ? new QCustomerCorp(forProperty("customerCorp"), inits.get("customerCorp")) : null;
     }
 
 }

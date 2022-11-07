@@ -18,9 +18,16 @@ public class CustomerCorp {
     @Column(name = "Name", length = 45)
     private String name;
 
+    @Embedded
+    private Address address;
+
     @Builder
     public CustomerCorp(Integer id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

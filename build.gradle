@@ -55,7 +55,7 @@ subprojects {
         }
     }
     // (3) QClass 생성 위치
-    def querydslDir = "$buildDir/generated/querydsl"
+    def querydslDir = "src/generated/querydsl"
 
     querydsl {
         jpa = true
@@ -68,9 +68,6 @@ subprojects {
     }
 // (5) gradle 5.0 설정
     configurations {
-        compileOnly {
-            extendsFrom annotationProcessor
-        }
         querydsl.extendsFrom compileClasspath
     }
 
@@ -115,7 +112,7 @@ project(':domain-user') {
     // user 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
-        implementation project(':domain-client')
+        implementation project(':external-address')
     }
 }
 
@@ -129,6 +126,13 @@ project(':domain-client') {
 project(':internal-security-jwt') {
     dependencies {
         implementation project(':internal-security-core')
+        implementation project(':domain-user')
+    }
+}
+
+project(':domain-order') {
+    dependencies {
+        implementation project(':module-core')
         implementation project(':domain-user')
     }
 }

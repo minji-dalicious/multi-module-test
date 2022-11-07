@@ -8,7 +8,10 @@ include 'app-admin'
 
 include 'domain-user'
 include 'domain-client'
+include 'domain-order'
+
 include 'internal-security-core'
 include 'internal-security-jwt'
 include 'internal-security-oauth'
+include 'external-address'
 

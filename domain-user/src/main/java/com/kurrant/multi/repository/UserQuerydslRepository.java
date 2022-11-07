@@ -1,7 +1,6 @@
 package com.kurrant.multi.repository;
 
-import com.kurrant.multi.domain.QUser;
-import com.kurrant.multi.domain.User;
+import com.kurrant.multi.domain.*;
 import com.kurrant.multi.dto.UserDto;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -39,6 +39,18 @@ public class UserQuerydslRepository {
             log.info("point: " + e.getPoint());
         });
         return result;
+    }
+
+    public List<OrderItem> findByClientNameAndPaymentDate(String clientName, LocalDate paymentDate) {
+        QOrderItem orderItem = QOrderItem.orderItem;
+        QCustomerCorp customerCorp = QCustomerCorp.customerCorp;
+
+        return queryFactory
+                .select(orderItem)
+                .from(orderItem)
+                .leftJoin(orderItem.order.user.customerCorp, customerCorp).on(customerCorp.name.eq(clientName))
+                .where(orderItem.serviceDate.eq(paymentDate))
+                .fetch();
     }
 
     @Transactional
