@@ -1,27 +1,28 @@
 package com.kurrant.multi.repository;
 
-import com.kurrant.multi.domain.*;
+import com.kurrant.multi.domain.OrderItem;
+import com.kurrant.multi.domain.QUser;
 import com.kurrant.multi.dto.UserDto;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
+import static com.kurrant.multi.domain.QCustomerCorp.customerCorp;
+import static com.kurrant.multi.domain.QOrder.order;
+import static com.kurrant.multi.domain.QOrderItem.orderItem;
+import static com.kurrant.multi.domain.QUser.user;
+
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class UserQuerydslRepository {
-    private final EntityManager em;
     private final JPAQueryFactory queryFactory;
-
-    public UserQuerydslRepository(EntityManager em) {
-        this.em = em;
-        this.queryFactory = new JPAQueryFactory(em);
-    }
 
     public List<UserDto> findByUsername(String name) {
         QUser user = QUser.user;
@@ -36,25 +37,41 @@ public class UserQuerydslRepository {
                 .fetch();
         result.forEach(e -> {
             log.info("name: " + e.getName());
-            log.info("point: " + e.getPoint());
         });
         return result;
     }
 
     public List<OrderItem> findByClientNameAndPaymentDate(String clientName, LocalDate paymentDate) {
-        QOrderItem orderItem = QOrderItem.orderItem;
-        QCustomerCorp customerCorp = QCustomerCorp.customerCorp;
+        Timestamp dateStart = Timestamp.valueOf(paymentDate.atStartOfDay());
+        Timestamp dateEnd =  Timestamp.valueOf(paymentDate.atTime(23, 59, 59));
 
         return queryFactory
                 .select(orderItem)
                 .from(orderItem)
-                .leftJoin(orderItem.order.user.customerCorp, customerCorp).on(customerCorp.name.eq(clientName))
-                .where(orderItem.serviceDate.eq(paymentDate))
+                .innerJoin(orderItem.order, order)
+                .innerJoin(order.user, user)
+                .leftJoin(user.customerCorp, customerCorp).on(user.customerCorp.isNotNull())
+                .where(user.customerCorp.name.eq(clientName))
+                .where(orderItem.created.between(dateStart, dateEnd))
                 .fetch();
     }
 
-    @Transactional
-    public void saveUser(User user) {
-        em.persist(user);
+    public List<OrderItem.ClientTotalExpenditure> getClientsTotalExpenditure(LocalDate startDate, LocalDate endDate) {
+        Timestamp startDateTime = Timestamp.valueOf(startDate.atStartOfDay());
+        Timestamp endDateTime =  Timestamp.valueOf(endDate.atTime(23, 59, 59));
+
+        return queryFactory
+                .select(Projections.fields(OrderItem.ClientTotalExpenditure.class,
+                        customerCorp.name.as("customerCorpName"),
+                        orderItem.price.sum().as("sum")
+                ))
+                .from(orderItem)
+                .innerJoin(orderItem.order, order)
+                .innerJoin(order.user, user)
+                .leftJoin(user.customerCorp, customerCorp)
+                .where(user.customerCorp.isNotNull())
+                .where(orderItem.created.between(startDateTime, endDateTime))
+                .groupBy(customerCorp)
+                .fetch();
     }
 }

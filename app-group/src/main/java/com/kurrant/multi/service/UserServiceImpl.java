@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     @Override
@@ -37,6 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void join(UserDto userDto) {
+        userDto.encodePassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         User user = UserMapper.INSTANCE.toEntity(userDto);
         userRepository.save(user);
     }

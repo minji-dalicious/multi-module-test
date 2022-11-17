@@ -7,11 +7,11 @@ include 'app-kurrant'
 include 'app-admin'
 
 include 'domain-user'
-include 'domain-client'
-include 'domain-order'
+
+include 'data-redis'
 
 include 'internal-security-core'
-include 'internal-security-jwt'
 include 'internal-security-oauth'
-include 'external-address'
+include 'internal-auth-mail'
+include 'internal-sms'
 

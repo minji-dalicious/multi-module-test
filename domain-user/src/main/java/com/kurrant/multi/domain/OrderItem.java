@@ -27,7 +27,7 @@ public class OrderItem {
     @Column(name = "Updated", length = 45)
     private Timestamp updated;
 
-    @Column(name = "ServiceDate", length = 45)
+    @Column(name = "ServiceDate")
     private LocalDate serviceDate;
 
     @Column(name = "isCheck", length = 45)
@@ -56,5 +56,26 @@ public class OrderItem {
         this.price = price;
         this.diningType = diningType;
         this.order = order;
+    }
+
+    @Getter
+    @NoArgsConstructor
+    public static class Request {
+        private String clientName;
+        private LocalDate serviceDate;
+
+        @Builder
+        public Request(String clientName, LocalDate serviceDate) {
+            this.clientName = clientName;
+            this.serviceDate = serviceDate;
+        }
+    }
+
+    @Getter
+    @NoArgsConstructor
+    public static class ClientTotalExpenditure {
+        private String customerCorpName;
+        private double total;
+
     }
 }

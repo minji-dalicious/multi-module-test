@@ -69,4 +69,26 @@ public class User {
             this.password = password;
         }
     }
+
+    @Getter
+    @NoArgsConstructor
+    public static class CheckEmail {
+        private String email;
+
+        @Builder
+        public CheckEmail(String email) {
+            this.email = email;
+        }
+    }
+
+    @Getter
+    @NoArgsConstructor
+    public static class CertificationNumber {
+        private String number;
+
+        @Builder
+        public CertificationNumber(String number) {
+            this.number = number;
+        }
+    }
 }

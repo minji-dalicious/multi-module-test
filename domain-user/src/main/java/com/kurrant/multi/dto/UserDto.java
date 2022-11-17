@@ -1,5 +1,6 @@
 package com.kurrant.multi.dto;
 
+import com.kurrant.multi.domain.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,12 +11,16 @@ public class UserDto {
 
     private String name;
     private String password;
-    private Integer point;
+    private Role role;
 
     @Builder
-    public UserDto(String name, String password, Integer point) {
+    public UserDto(String name, String password, Role role) {
         this.name = name;
         this.password = password;
-        this.point = point;
+        this.role = role;
+    }
+
+    public void encodePassword(String password) {
+        this.password = password;
     }
 }

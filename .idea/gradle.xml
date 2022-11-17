@@ -15,13 +15,12 @@
             <option value="$PROJECT_DIR$/app-group" />
             <option value="$PROJECT_DIR$/app-kurrant" />
             <option value="$PROJECT_DIR$/app-makers" />
-            <option value="$PROJECT_DIR$/domain-client" />
-            <option value="$PROJECT_DIR$/domain-order" />
+            <option value="$PROJECT_DIR$/data-redis" />
             <option value="$PROJECT_DIR$/domain-user" />
-            <option value="$PROJECT_DIR$/external-address" />
+            <option value="$PROJECT_DIR$/internal-auth-mail" />
             <option value="$PROJECT_DIR$/internal-security-core" />
-            <option value="$PROJECT_DIR$/internal-security-jwt" />
             <option value="$PROJECT_DIR$/internal-security-oauth" />
+            <option value="$PROJECT_DIR$/internal-sms" />
             <option value="$PROJECT_DIR$/module-core" />
           </set>
         </option>

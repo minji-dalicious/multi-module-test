@@ -46,7 +46,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                .anyRequest().authenticated()
+//                .anyRequest().authenticated()
 
                 .and()
                 .apply(new JwtSecurityConfig(jwtTokenProvider));

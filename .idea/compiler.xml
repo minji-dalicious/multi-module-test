@@ -8,15 +8,13 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
         </processorPath>
-        <module name="multi-module-test.domain-user.main" />
-        <module name="multi-module-test.domain-order.main" />
-        <module name="multi-module-test.external-address.main" />
+        <module name="multi-module-test.internal-auth-mail.main" />
         <module name="multi-module-test.app-kurrant.main" />
         <module name="multi-module-test.internal-security-oauth.main" />
         <module name="multi-module-test.app-admin.main" />
+        <module name="multi-module-test.data-redis.main" />
         <module name="com.kurrant.multi.multi-module-test.internal-security-core.main" />
-        <module name="multi-module-test.domain-client.main" />
-        <module name="multi-module-test.internal-security-jwt.main" />
+        <module name="multi-module-test.internal-sms.main" />
         <module name="com.kurrant.multi.multi-module-test.app-group.main" />
         <module name="com.kurrant.multi.multi-module-test.app-makers.main" />
       </profile>
@@ -26,6 +24,7 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.3.Final/dce418bedafd71ff8dd2cef15006c0fee788b073/mapstruct-processor-1.5.3.Final.jar" />
         </processorPath>
         <module name="multi-module-test.module-core.test" />
+        <module name="multi-module-test.domain-user.test" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
@@ -34,6 +33,7 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.3.Final/dce418bedafd71ff8dd2cef15006c0fee788b073/mapstruct-processor-1.5.3.Final.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok-mapstruct-binding/0.2.0/2f1cf9ced7b720ba4996c942b816669e63f0fa4f/lombok-mapstruct-binding-0.2.0.jar" />
         </processorPath>
+        <module name="multi-module-test.domain-user.main" />
         <module name="multi-module-test.module-core.main" />
       </profile>
     </annotationProcessing>

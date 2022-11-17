@@ -55,7 +55,7 @@ subprojects {
         }
     }
     // (3) QClass 생성 위치
-    def querydslDir = "src/generated/querydsl"
+    def querydslDir = "$buildDir/generated/querydsl"
 
     querydsl {
         jpa = true
@@ -88,7 +88,8 @@ project(':app-group') {
     // group 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':internal-security-core')
-        implementation project(':internal-security-jwt')
+        implementation project(':internal-auth-mail')
+        implementation project(':internal-sms')
         implementation project(':domain-user')
         implementation project(':module-core')
     }
@@ -105,6 +106,7 @@ project(':app-kurrant') {
     // makers 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
+        implementation project(':domain-user')
     }
 }
 
@@ -112,27 +114,24 @@ project(':domain-user') {
     // user 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
     dependencies {
         implementation project(':module-core')
-        implementation project(':external-address')
     }
 }
 
-project(':domain-client') {
-    // client(CustomerCorporation / Apartment) 모듈에만 필요한 라이브러리가 발생하면 이곳에 추가한다.
+project(':internal-security-core') {
     dependencies {
+        implementation project(':domain-user')
         implementation project(':module-core')
     }
 }
 
-project(':internal-security-jwt') {
+project(':internal-auth-mail') {
     dependencies {
-        implementation project(':internal-security-core')
-        implementation project(':domain-user')
+        implementation project(':data-redis')
     }
 }
 
-project(':domain-order') {
+project(':internal-sms') {
     dependencies {
-        implementation project(':module-core')
-        implementation project(':domain-user')
+        implementation project(':data-redis')
     }
 }

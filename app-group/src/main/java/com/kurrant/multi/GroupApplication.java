@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.kurrant")
 public class GroupApplication {
     public static void main(String[] args) {
-        //타 모듈의 .properties 파일 가져오기4
+        //타 모듈의 .properties 파일 가져오기
         SpringApplication.run(GroupApplication.class);
     }
 }
